@@ -8,8 +8,27 @@ document.addEventListener("DOMContentLoaded", () =>{
   setTimeout(() => {
     loadingDiv.style = "display:none";
     containerDiv.style.displayed = "true";
-  }, 3000);
+  },2000 );
+
+  tarih.textContent = `${formattedDate} ${formattedTime} `
+  
 })
+
+// Şu anki tarihi ve saati al
+var currentDate = new Date();
+
+// Tarih ve saat bilgisini al
+var day = currentDate.getDate();
+var month = currentDate.getMonth() + 1; // Ay değerini 0-11 aralığında verir, bu yüzden +1 ekliyoruz
+var year = currentDate.getFullYear();
+var hours = currentDate.getHours();
+var minutes = currentDate.getMinutes();
+var seconds = currentDate.getSeconds();
+
+// Tarihi ve saati istediğiniz formata biçimlendir
+var formattedDate = ("0" + day).slice(-2) + "." + ("0" + month).slice(-2) + "." + year;
+var formattedTime = ("0" + hours).slice(-2) + ":" + ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
 
 
 // Kullanacağınız API adresi => "https://api.thecatapi.com/v1/images/search?limit=10"
